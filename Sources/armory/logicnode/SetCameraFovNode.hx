@@ -8,7 +8,7 @@ class SetCameraFovNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var camera:CameraObject = inputs[1].get();
 		var fov:Float = inputs[2].get();
 		

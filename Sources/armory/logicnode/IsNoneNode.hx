@@ -6,7 +6,7 @@ class IsNoneNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 
 		var v1:Dynamic = inputs[1].get();
 		if (v1 == null) super.run();

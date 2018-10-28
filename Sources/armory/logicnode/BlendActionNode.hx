@@ -8,7 +8,7 @@ class BlendActionNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var object:Object = inputs[1].get();
 		var action1:String = inputs[2].get();
 		var action2:String = inputs[3].get();

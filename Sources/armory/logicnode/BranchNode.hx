@@ -6,7 +6,7 @@ class BranchNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var b:Bool = inputs[1].get();
 		b ? runOutputs(0) : runOutputs(1);
 	}

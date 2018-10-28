@@ -10,7 +10,7 @@ class GoToLocationNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var object:Object = inputs[1].get();
 		var location:Vec4 = inputs[2].get();
 		

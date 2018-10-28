@@ -6,7 +6,7 @@ class SequenceNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		super.run();
 	}
 }

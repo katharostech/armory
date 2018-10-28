@@ -8,7 +8,7 @@ class PlaySoundNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var object:SpeakerObject = cast(inputs[1].get(), SpeakerObject);
 		if (object == null) return;
 		object.play();

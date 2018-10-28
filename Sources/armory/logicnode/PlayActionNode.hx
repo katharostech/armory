@@ -8,7 +8,7 @@ class PlayActionNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var object:Object = inputs[1].get();
 		var action:String = inputs[2].get();
 		// TODO: assume input exists

@@ -6,7 +6,7 @@ class SetMouseLockNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var lock:Bool = inputs[1].get();
 		var mouse = iron.system.Input.getMouse();
 		lock ? mouse.lock() : mouse.unlock();

@@ -8,7 +8,7 @@ class SetLightColorNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var light:LightObject = inputs[1].get();
 		var color:iron.math.Vec4 = inputs[2].get();
 		

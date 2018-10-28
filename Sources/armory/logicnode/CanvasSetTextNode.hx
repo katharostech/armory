@@ -22,7 +22,7 @@ class CanvasSetTextNode extends LogicNode {
 		super.run();
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		element = inputs[1].get();
 		text = inputs[2].get();
 		canvas = Scene.active.getTrait(CanvasScript);

@@ -8,7 +8,7 @@ class CallHaxeStaticNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		
 		var path:String = inputs[1].get();
 		if (path != '') {

@@ -6,7 +6,7 @@ class SetVariableNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var variable = inputs[1];
 		var value:Dynamic = inputs[2].get();
 

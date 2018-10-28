@@ -8,7 +8,7 @@ class LoopNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		index = 0;
 		var from:Int = inputs[1].get();
 		var to:Int = inputs[2].get();

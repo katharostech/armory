@@ -6,7 +6,7 @@ class WriteStorageNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var key:String = inputs[1].get();
 		var value:Dynamic = inputs[2].get();
 

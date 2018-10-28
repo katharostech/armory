@@ -15,7 +15,7 @@ class ScriptNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 
 		var v:Dynamic = inputs[1].get();
 

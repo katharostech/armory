@@ -11,7 +11,7 @@ class SendEventNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var name:String = inputs[1].get();
 		var object:Object = inputs.length > 2 ? inputs[2].get() : tree.object;
 

@@ -8,7 +8,7 @@ class SetLightStrengthNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var light:LightObject = inputs[1].get();
 		var strength:Float = inputs[2].get();
 		

@@ -6,7 +6,7 @@ class AddGroupNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var groupName:String = inputs[1].get();
 		
 		if (iron.Scene.active.groups.get(groupName) == null) {

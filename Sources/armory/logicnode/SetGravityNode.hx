@@ -10,7 +10,7 @@ class SetGravityNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var gravity:Vec4 = inputs[1].get();
 
 		if (gravity == null) return;

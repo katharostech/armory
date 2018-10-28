@@ -111,17 +111,17 @@ def build_node(node, f):
             prop = '"' + str(prop) + '"' if isinstance(prop, str) else str(prop)
             f.write('\t\t' + name + '.property' + str(i) + ' = ' + prop + ';\n')
     
-    # Create inputs
+    # Create value inputs
     for inp in node.inputs:
         # Is linked - find node
         if inp.is_linked:
-            n = inp.links[0].from_node
+            node = inp.links[0].from_node
             socket = inp.links[0].from_socket
             if inp.bl_idname == 'ArmNodeSocketAction' and socket.bl_idname != 'ArmNodeSocketAction':
                 print('Armory Error: Wrong connection in logic node tree "{0}" - node "{1}" - socket "{2}"'.format(group_name, node.name, inp.name))
-            inp_name = build_node(n, f)
-            for i in range(0, len(n.outputs)):
-                if n.outputs[i] == socket:
+            inp_name = build_node(node, f)
+            for i in range(0, len(node.outputs)):
+                if node.outputs[i] == socket:
                     inp_from = i
                     break
         # Not linked - create node with default values
@@ -131,20 +131,24 @@ def build_node(node, f):
         # Add input
         f.write('\t\t' + name + '.addInput(' + inp_name + ', ' + str(inp_from) + ');\n')
     
-    # Create outputs
+    # Create action outputs
     for out in node.outputs:
         if out.is_linked:
-            out_name = ''
+            out_str = ''
             for l in out.links:
-                n = l.to_node
-                out_name += '[' if len(out_name) == 0 else ', '
-                out_name += build_node(n, f)
-            out_name += ']'
-        # Not linked - create node with default values
-        else:
-            out_name = '[' + build_default_node(out) + ']'
-        # Add outputs
-        f.write('\t\t' + name + '.addOutputs(' + out_name + ');\n')
+                if out.bl_idname != 'ArmNodeSocketAction': continue
+                node = l.to_node
+                socket = l.to_socket
+                out_name = build_node(node, f)
+                for i in range(0, len(node.inputs)):
+                    if node.inputs[i] == socket:
+                        out_to = i
+                        break
+                out_str += '[' if len(out_str) == 0 else ', '
+                out_str += '{node:' + out_name + ', to:' + str(out_to) + '}'
+            if out_str != '':
+                out_str += ']'
+                f.write('\t\t' + name + '.addOutputs(' + out_str + ');\n')
 
     return name
     

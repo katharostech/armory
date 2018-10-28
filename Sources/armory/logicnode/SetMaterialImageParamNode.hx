@@ -19,7 +19,7 @@ class SetMaterialImageParamNode extends LogicNode {
 		}
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		mat = inputs[1].get();
 		node = inputs[2].get();
 		if (mat == null || node == null) return;

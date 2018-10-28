@@ -6,7 +6,7 @@ class SetTimeScaleNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var f:Float = inputs[1].get();
 		iron.system.Time.scale = f;
 		super.run();

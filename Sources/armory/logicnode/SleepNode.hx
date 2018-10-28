@@ -6,7 +6,7 @@ class SleepNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var time:Float = inputs[1].get();
 		iron.system.Tween.timer(time, done);
 	}

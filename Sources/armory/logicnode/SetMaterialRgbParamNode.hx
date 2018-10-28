@@ -19,7 +19,7 @@ class SetMaterialRgbParamNode extends LogicNode {
 		}
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		mat = inputs[1].get();
 		node = inputs[2].get();
 		col = inputs[3].get();

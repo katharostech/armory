@@ -8,7 +8,7 @@ class ResumeTilesheetNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var object:MeshObject = inputs[1].get();
 		
 		if (object == null) return;

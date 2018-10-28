@@ -6,7 +6,7 @@ class SwitchNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var v1:Dynamic = inputs[1].get();
 		if (inputs.length > 2) {
 			for(i in 2...inputs.length) {

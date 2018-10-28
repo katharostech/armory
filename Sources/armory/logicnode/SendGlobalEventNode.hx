@@ -11,7 +11,7 @@ class SendGlobalEventNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var name:String = inputs[1].get();
 		
 		// if (entries == null) {

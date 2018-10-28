@@ -9,7 +9,7 @@ class SetMaterialSlotNode extends LogicNode {
 		super(tree);
 	}
 
-	override function run() {
+	override function run(action:Int=0) {
 		var object:MeshObject = inputs[1].get();
 		var mat:MaterialData = inputs[2].get();
 		var slot:Int = inputs[3].get();
