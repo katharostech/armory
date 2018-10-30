@@ -28,10 +28,10 @@ class Starter {
 			armory.object.Uniforms.register();
 			
 			var windowMode = c.window_mode == 0 ? kha.WindowMode.Windowed : kha.WindowMode.Fullscreen;
-			var windowFeatures = 0;
-			if (c.window_resizable) windowFeatures |= kha.WindowOptions.FeatureResizable;
-			if (c.window_maximizable) windowFeatures |= kha.WindowOptions.FeatureMaximizable;
-			if (c.window_minimizable) windowFeatures |= kha.WindowOptions.FeatureMinimizable;
+			var windowFeatures = kha.WindowOptions.WindowFeatures.None;
+			if (c.window_resizable) windowFeatures |= kha.WindowOptions.WindowFeatures.FeatureResizable;
+			if (c.window_maximizable) windowFeatures |= kha.WindowOptions.WindowFeatures.FeatureMaximizable;
+			if (c.window_minimizable) windowFeatures |= kha.WindowOptions.WindowFeatures.FeatureMinimizable;
 			kha.System.start({title: Main.projectName, width: c.window_w, height: c.window_h, window: {mode: windowMode, windowFeatures: windowFeatures}, framebuffer: {samplesPerPixel: c.window_msaa, verticalSync: c.window_vsync}}, function(window:kha.Window) {
 				iron.App.init(function() {
 					#if arm_loadscreen
