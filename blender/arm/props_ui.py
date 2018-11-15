@@ -364,9 +364,9 @@ class ArmoryProjectPanel(bpy.types.Panel):
             row = box.row()
             col = row.column()
             col.prop(wrd, 'arm_modding_game_blend')
+            col.prop(wrd, 'arm_project_package')
             col.prop(wrd, 'arm_modding_folder')
-            row = box.row()
-            row.prop(wrd, 'arm_modding_extra_packages')
+            col.prop(wrd, 'arm_modding_extra_packages')
 
         layout.label(text="Window")
         layout.prop(wrd, 'arm_winmode')
