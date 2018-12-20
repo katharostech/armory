@@ -344,7 +344,7 @@ class ArmoryProjectPanel(bpy.types.Panel):
         layout.prop(wrd, 'arm_texture_quality')
         layout.prop(wrd, 'arm_sound_quality')
 
-        layout.label('Modding')
+        layout.label(text='Modding')
         box = layout.box().column()
         row = box.row()
         row.prop(wrd, 'arm_modding_mode', expand=True)
